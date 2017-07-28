@@ -1,34 +1,25 @@
 # REST-in-Go
 
-O desafio que propomos é escrever uma API REST, usando [Go](https://golang.org/) e podendo usar qualquer framework que desejar. 
-Nesta teremos um resource Invoice (Nota Fiscal). Abaixo, algumas especificações:
+This repository is part of the Stone Challenge that proposed the development of a REST API using [Go](https://golang.org/) and any other framework from the language.
 
-## Métodos a serem implementados
-Implementar métodos:
+The API would serve the resource Invoice, using the HTTP methods, correctly to their specification:
+
   1. GET
   2. POST
   4. PUT
   3. DELETE
 
-Atenção:
-Utilizar os status codes do HTTP corretamente de acordo com cada operação.
+**OBS.:** The DELETE method will not delete the phisical object, just logically.
 
-O método DELETE não executa uma deleção física, e sim uma deleção lógica.
+The requirements of the challenge included:
 
-Na listagem é necessário ter:
-  1. Paginação;
-  2. Filtro por mês, ano ou documento;
-  3. Escolher a ordenação por mês, ano, documento ou combinações entre;
+  1. Pagination;
+  2. Filter by month, year or document;
+  3. Order by any combination of year, month and document;
+  4. Authenticate the application via token;
+  5. Make queries without ORMs or Hibernate, SQLAlchemy etc;
 
-## Autenticação
-Temos que autenticar através de token de aplicação;
-
-## Persistência
-Utilizar um Banco de Dados, a sua escolha, poder ser SQLite, MariaDB, etc;
-
-Não utilizar ORMs, fazer a queries sem o auxílio de Hibernate, SQLAlchemy, etc;
-
-## Domínio / Modelo
+## Model
     Invoice
         ReferenceMonth : INTEGER
         ReferenceYear : INTEGER
@@ -38,9 +29,3 @@ Não utilizar ORMs, fazer a queries sem o auxílio de Hibernate, SQLAlchemy, etc
         IsActive : TINYINT
         CreatedAt  : DATETIME
         DeactiveAt : DATETIME
-
-O código deve estar no Github ou BitBucket com o repositório público. Responda esse email com o link do repositório. 
-
-O prazo fica a seu critério, não importa quanto tempo, mas o importante é que você cumpra os seus prazos.
-
-O ideal é que a aplicação cumpra todos os requisitos, mas se isso não for possível, gostaríamos de ver o seu código mesmo assim.
