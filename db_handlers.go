@@ -59,6 +59,14 @@ var GetInvoicesHandler = AuthMiddleware(http.HandlerFunc(func(response http.Resp
 	sqlParams, where := make(map[string]interface{}), mux.Vars(request)
 	limit, err := strconv.Atoi(request.FormValue("per_page"))
 
+	if len(where) == 0 {
+		for k, v := range request.URL.Query() {
+			if k == "year" || k == "month" || k == "document" {
+				where[k] = v[0]
+			}
+		}
+	}
+
 	if err != nil || limit > 400 || limit < 1 {
 		limit = 100
 	}
